@@ -1,11 +1,9 @@
 import { Template } from 'meteor/templating';
- 
+import { TasksCollection } from "../api/TasksCollection";
 import './App.html';
- 
+
 Template.mainContainer.helpers({
-  tasks: [
-    { text: 'Read Through Meteor Tutorial' },
-    { text: 'Complete Meteor Tutorial' },
-    { text: 'Create new template' },
-  ],
+  tasks() {
+    return TasksCollection.find({});
+  },
 });
