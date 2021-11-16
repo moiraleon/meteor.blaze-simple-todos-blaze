@@ -35,14 +35,19 @@ Template.mainContainer.onCreated(function mainContainerOnCreated() {
   });
 });
 
+
 Template.mainContainer.events({
   'click #hide-completed-button'(event, instance) {
     const currentHideCompleted = instance.state.get(HIDE_COMPLETED_STRING);
     instance.state.set(HIDE_COMPLETED_STRING, !currentHideCompleted);
   },
-  'click .user'() {
-    Meteor.logout();
-  },
+  // 'click .user'() {
+  //   Meteor.logout();
+  // },
+
+  'click #view-Settings-Page'(event, instance){
+    Router.go('/imports/ui/Settings.js');
+  }
 });
 
 Template.mainContainer.helpers({
@@ -106,3 +111,10 @@ Template.form.events({
     target.text.value = '';
   },
 });
+
+Template.inspirationCards.helpers({
+  inspirationCards:[
+    {title:"First Card"}
+  ]
+})
+

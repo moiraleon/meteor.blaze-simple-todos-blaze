@@ -1,5 +1,6 @@
 <body>
     {{> mainContainer}}
+    {{> inspirationCards}}
     </body>
     
     
@@ -20,8 +21,14 @@
                     </div>
                     
                     <div class="userSettingsLink" >
-                        <a href="/imports/ui/Settings.html">Settings</a>
+                        <button id="view-Settings-Page">Settings</button>
                     </div>
+
+                    <ul>
+                        {{#each inspirationCards}}
+                        {{> inspirationCard}}
+                        {{/each}}
+                    </ul>
 
                     {{> form }}
     
@@ -44,6 +51,7 @@
                             {{> task}}
                         {{/each}}
                     </ul>
+
                 {{else}}
                     {{> login }}
                 {{/if}}
@@ -56,4 +64,10 @@
             <input type="text" name="text" placeholder="Type to add new tasks" />
             <button type="submit">Add Task</button>
         </form>
+    </template>
+
+    <template name="inspirationCards">
+            <li>
+                {{title}}
+            </li>
     </template>
